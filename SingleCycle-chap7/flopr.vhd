@@ -5,9 +5,10 @@ use IEEE.STD_LOGIC_ARITH.all;
 entity flopr is
     generic(width: integer);
     port(
-        clk, reset: in STD_LOGIC;
-        d: in STD_LOGIC_VECTOR(width-1 downto 0);
-        q: out STD_LOGIC_VECTOR(width-1 downto 0));
+        clk, reset : in  STD_LOGIC;
+        d          : in  STD_LOGIC_VECTOR(width-1 downto 0);
+        q          : out STD_LOGIC_VECTOR(width-1 downto 0)
+    );
 end;
 
 architecture asynchronous of flopr is

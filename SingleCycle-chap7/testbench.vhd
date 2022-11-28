@@ -8,13 +8,13 @@ end;
 architecture test of testbench is
     component top
         port(
-            clk, reset: in STD_LOGIC;
-            WriteData, DataAdr: out STD_LOGIC_VECTOR(31 downto 0);
-            MemWrite: out STD_LOGIC);
+            clk, reset         : in  STD_LOGIC;
+            WriteData, DataAdr : out STD_LOGIC_VECTOR(31 downto 0);
+            MemWrite           : out STD_LOGIC);
     end component;
 
-    signal WriteData, DataAdr: STD_LOGIC_VECTOR(31 downto 0);
-    signal clk, reset, MemWrite: STD_LOGIC;
+    signal WriteData, DataAdr   : STD_LOGIC_VECTOR(31 downto 0);
+    signal clk, reset, MemWrite : STD_LOGIC;
 
 begin
     -- instantiate device to be tested

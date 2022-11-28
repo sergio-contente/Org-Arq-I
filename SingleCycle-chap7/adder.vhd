@@ -6,7 +6,7 @@ entity adder is
     port(
         a, b : in  STD_LOGIC_VECTOR(31 downto 0);
         y    : out STD_LOGIC_VECTOR(31 downto 0)
-        );
+    );
 end;
 
 architecture behave of adder is
