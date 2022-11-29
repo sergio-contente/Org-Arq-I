@@ -21,7 +21,7 @@ begin
         case op is
             when "0000011" => controls <= "10010010000"; -- lw
             when "0100011" => controls <= "00111000000"; -- sw
-            when "0110011" => controls <= "1--00000100"; -- R-type
+            when "0110011" => controls <= "1--00000100"; -- R-type ("-" = don't care)
             when "1100011" => controls <= "01000001010"; -- beq
             when "0010011" => controls <= "10010000100"; -- I-type ALU
             when "1101111" => controls <= "11100100001"; -- jal

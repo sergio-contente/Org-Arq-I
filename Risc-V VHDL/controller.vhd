@@ -7,7 +7,7 @@ entity controller is
         funct7b5, Zero : in     STD_LOGIC;
         ResultSrc      : out    STD_LOGIC_VECTOR(1 downto 0);
         MemWrite       : out    STD_LOGIC;
-        PCSrc, ALUSrc  : out    STD_LOGIC;
+        PCSrc, ALUSrc  : out    STD_LOGIC; --branch
         RegWrite       : out    STD_LOGIC;
         Jump           : buffer STD_LOGIC;
         ImmSrc         : out    STD_LOGIC_VECTOR(1 downto 0);

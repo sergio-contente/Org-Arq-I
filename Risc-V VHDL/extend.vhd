@@ -18,13 +18,13 @@ begin
                 immext <= (31 downto 12 => instr(31)) &
                                            instr(31 downto 20);
 
-            -- S-types (stores)
+            -- S-types (store)
             when "01" =>
                 immext <= (31 downto 12 => instr(31)) &
                                            instr(31 downto 25) &
                                            instr(11 downto 7);
 
-            -- B-type (branches)
+            -- B-type (branch)
             when "10" =>
                 immext <= (31 downto 12 => instr(31)) &
                                            instr(7) &

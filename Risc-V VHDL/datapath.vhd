@@ -4,17 +4,17 @@ use IEEE.STD_LOGIC_ARITH.all;
 
 entity datapath is
     port(
-        clk, reset           : in     STD_LOGIC;
-        ResultSrc            : in     STD_LOGIC_VECTOR(1 downto 0);
-        PCSrc, ALUSrc        : in     STD_LOGIC;
-        RegWrite             : in     STD_LOGIC;
-        ImmSrc               : in     STD_LOGIC_VECTOR(1 downto 0);
-        ALUControl           : in     STD_LOGIC_VECTOR(2 downto 0);
-        Zero                 : out    STD_LOGIC;
-        PC                   : buffer STD_LOGIC_VECTOR(31 downto 0);
-        Instr                : in     STD_LOGIC_VECTOR(31 downto 0);
-        ALUResult, WriteData : buffer STD_LOGIC_VECTOR(31 downto 0);
-        ReadData             : in     STD_LOGIC_VECTOR(31 downto 0)
+        clk, reset           : in  STD_LOGIC;
+        ResultSrc            : in  STD_LOGIC_VECTOR(1 downto 0);
+        PCSrc, ALUSrc        : in  STD_LOGIC;
+        RegWrite             : in  STD_LOGIC;
+        ImmSrc               : in  STD_LOGIC_VECTOR(1 downto 0);
+        ALUControl           : in  STD_LOGIC_VECTOR(2 downto 0);
+        Zero                 : out STD_LOGIC;
+        PC                   : out STD_LOGIC_VECTOR(31 downto 0);
+        Instr                : in  STD_LOGIC_VECTOR(31 downto 0);
+        ALUResult, WriteData : out STD_LOGIC_VECTOR(31 downto 0);
+        ReadData             : in  STD_LOGIC_VECTOR(31 downto 0)
     );
 end;
 
@@ -81,7 +81,7 @@ architecture struct of datapath is
         port(
             a, b       : in     STD_LOGIC_VECTOR(31 downto 0);
             ALUControl : in     STD_LOGIC_VECTOR(2 downto 0);
-            ALUResult  : buffer STD_LOGIC_VECTOR(31 downto 0);
+            ALUResult  : out STD_LOGIC_VECTOR(31 downto 0);
             Zero       : out    STD_LOGIC
         );
     end component;

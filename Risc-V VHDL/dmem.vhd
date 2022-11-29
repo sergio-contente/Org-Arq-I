@@ -1,7 +1,7 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
-use STD.TEXTIO.all;
-use IEEE.NUMERIC_STD_UNSIGNED.all;
+use IEEE.NUMERIC_STD.ALL;
+use WORK.UTILS.MEM_T;
 
 entity dmem is
     port(
@@ -12,21 +12,21 @@ entity dmem is
 end;
 
 architecture behave of dmem is
+    type mem_t is array (0 to 1023) of std_logic_vector(31 downto 0);
+    signal mem : mem_t := (others=>(others=>'0'));
+
 begin
-    process is
-        type ramtype is array (63 downto 0) of STD_LOGIC_VECTOR(31 downto 0);
-        variable mem : ramtype;
-    
+    -- read or write memory
+    process(clock)
     begin
-        -- read or write memory
-        loop
-            if rising_edge(clk) then
-                if (we = '1') then
-                    mem(to_integer(a(7 downto 2))) := wd;
-                end if;
+        if rising_edge(clk) then
+            if (we = '1') then
+                mem(to_integer(unsigned(a))) <= wd;
             end if;
-            rd <= mem(to_integer(a(7 downto 2)));
-            wait on clk, a;
-        end loop;
+        end if;
+        rd <= mem(to_integer(a(7 downto 2)));
+        wait on clk, a;
     end process;
+
+    rd <= mem(to_integer(unsigned(a)));
 end;
