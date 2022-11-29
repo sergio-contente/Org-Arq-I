@@ -20,12 +20,12 @@ begin
 	begin
 		if (clear = '1') then
 			instruction_o <= (others => '0');
-			address_o <= (others => '0');
+			address_o     <= (others => '0');
 		elsif rising_edge(clk) then
 			if (flushD = '0') then
-				if(regs_en_IFID = '1') then
+				if(IFID = '1') then
 					instruction_o <= instruction_i;
-					address_o <= address_i;
+					address_o     <= address_i;
 				end if;
 			else
 				instruction_o <= (others => '0');
